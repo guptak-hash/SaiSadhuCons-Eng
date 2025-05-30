@@ -96,3 +96,32 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', animateOnScroll);
     animateOnScroll(); // Run once on page load
 });
+
+// Add to your existing script.js file
+
+// Lightbox functionality for certificates
+document.addEventListener('DOMContentLoaded', function() {
+    // Create lightbox element
+    const lightbox = document.createElement('div');
+    lightbox.id = 'lightbox';
+    document.body.appendChild(lightbox);
+    
+    const images = document.querySelectorAll('[data-lightbox]');
+    images.forEach(image => {
+        image.addEventListener('click', function(e) {
+            e.preventDefault();
+            lightbox.classList.add('active');
+            const img = document.createElement('img');
+            img.src = this.href;
+            while (lightbox.firstChild) {
+                lightbox.removeChild(lightbox.firstChild);
+            }
+            lightbox.appendChild(img);
+        });
+    });
+    
+    lightbox.addEventListener('click', function(e) {
+        if (e.target !== e.currentTarget) return;
+        lightbox.classList.remove('active');
+    });
+});
