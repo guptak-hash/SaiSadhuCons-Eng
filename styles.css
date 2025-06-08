@@ -123,6 +123,18 @@ header .container {
     padding: 20px 15px;
 }
 
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-img {
+    height: 100px; /* Fixed height, width will adjust automatically */
+    width: auto; /* Maintain aspect ratio */
+    transition: all 0.3s ease;
+}
+
 .logo h1 {
     font-size: 1.8rem;
     color: var(--primary-color);
